@@ -1,6 +1,8 @@
-require_relative "classes/numberToText.rb"
+$LOAD_PATH << './classes'
 
-(9 .. 21).to_a.each do |number|
+require 'numberToText'
+
+(9 .. 11).to_a.each do |number|
   ntt = NumberToText.new(number)
 
   puts "#{ntt}"
