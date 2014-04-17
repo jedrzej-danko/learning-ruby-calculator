@@ -38,7 +38,6 @@ class NumberToText
 
   def getTensAsText()
     d = getTens.to_i
-    puts "Tens: #{d}"
     return @locale.getTens(d);
   end
 
