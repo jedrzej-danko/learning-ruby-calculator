@@ -1,13 +1,21 @@
 $LOAD_PATH << './classes'
 
+require 'input/fromKeyboard'
+require 'input/static'
+require 'parser'
+
 require 'numberToText'
+require 'i18n/pl/numberToText'
 require 'i18n/en/numberToText'
 
-# locale = I18n::Pl::NumberToText.new
+
+input = Input::FromKeyboard.new
+parser = Parser.new(input)
+
 locale = I18n::En::NumberToText.new
+ntt = NumberToText.new(parser.getResult.to_i, locale)
 
-(18..22).to_a.each do |number|
-  ntt = NumberToText.new(number, locale)
+puts "Result is #{ntt}"
 
-  puts "#{ntt}"
-end
+
+puts 'koniec'
