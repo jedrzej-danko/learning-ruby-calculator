@@ -32,12 +32,13 @@ class NumberToText
     elsif(s >= 1.to_f and s < 2.to_f) 
       return s * 10
     else
-      return s.round * 10
+      return s.to_i * 10
     end
   end
 
   def getTensAsText()
     d = getTens.to_i
+    puts "Tens: #{d}"
     return @locale.getTens(d);
   end
 
