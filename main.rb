@@ -16,6 +16,3 @@ locale = I18n::En::NumberToText.new
 ntt = NumberToText.new(parser.getResult.to_i, locale)
 
 puts "Result is #{ntt}"
-
-
-puts 'koniec'
