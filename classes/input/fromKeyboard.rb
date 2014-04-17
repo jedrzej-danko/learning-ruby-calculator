@@ -3,7 +3,7 @@ module Input
   class FromKeyboard
     
     def readInput
-      puts("Wprowadz dzialanie: ")
+      puts("Enter operation: ")
       @command = gets
     end
     
