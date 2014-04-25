@@ -13,7 +13,7 @@ class Operation < Array
     return operation         
   end
   
-  def readResult
+  def getResult
     numberOfImportantFields = 0
     self.each do |val|
       if val != nil 
