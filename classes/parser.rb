@@ -1,29 +1,48 @@
 require 'operation'
 
 class Parser
+
+  @@acceptedChars = /^([0-9\-*+\/]+)$/
+  @@operationPattern = /(?<number>[+]?(\d*[.])?\d+)(?<operators>[-*+\/]{1})?/
     
   def initialize(inputReader)
     if(inputReader.respond_to?('getInput') == false)
       raise 'getInput method is required'
     end
     operationString = inputReader.getInput
-    operation = Operation.new(parse(operationString)) 
-    @@result = operation.calculate.readResult
+    if valid?(operationString)
+      @result = parse(operationString)
+      if @result.length == 0
+        raise "Empty operation"
+      end      
+    end
+    
   end
   
   def getResult
-    return @@result
+    return @result
   end
   
   private
   
-  def parse(operationString)
-    pattern = /(?<number>[+]?(\d*[.])?\d+)(?<operators>[-*+\/]{1})?/
-    result = operationString.scan(pattern)
+  def valid?(operationString)
+    if ! @@acceptedChars.match(operationString)
+      raise "Unaccepted chars in operation: #{operationString}"
+    end
+    if ! @@operationPattern.match(operationString)
+      raise "Operation is malformed: {#operationString}"
+    end
+    return true
+  end
+  
+  def parse(operationString) 
+    result = operationString.scan(@@operationPattern)
     returns = Array.new
     result.each do |match|
       match.each do |str|
-        returns.push(str)
+        if str != nil
+          returns.push(str)          
+        end
       end
     end
     return returns
