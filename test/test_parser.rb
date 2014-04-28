@@ -1,8 +1,8 @@
-require 'test/unit'
+require 'minitest/autorun'
 require 'input/static'
 require 'parser'
 
-class ParserTest < Test::Unit::TestCase
+class ParserTest < MiniTest::Unit::TestCase
   
   def test_parser
     parser = Parser.new(Input::Static.new('2+2'))
@@ -15,8 +15,8 @@ class ParserTest < Test::Unit::TestCase
   end
   
   def test_parserFailure
-    assert_raise(RuntimeError) {Parser.new(Input::Static.new('a+b'))}
-    assert_raise(RuntimeError) {Parser.new(Input::Static.new('+*+3'))}
+    assert_raises(RuntimeError) {Parser.new(Input::Static.new('a+b'))}
+    assert_raises(RuntimeError) {Parser.new(Input::Static.new('+*+3'))}
   end
   
 end

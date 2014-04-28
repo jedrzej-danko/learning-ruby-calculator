@@ -1,9 +1,8 @@
-
-require 'test/unit'
+require 'minitest/autorun'
 require 'input/static'
 
     
-class InputStaticTest < Test::Unit::TestCase
+class InputStaticTest < MiniTest::Unit::TestCase
   
   def test_getInput
     obj = Input::Static.new('2+2')
