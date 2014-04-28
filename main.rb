@@ -1,4 +1,4 @@
-$LOAD_PATH << './classes'
+$LOAD_PATH << File.join(__FILE__, '../lib')
 
 require 'input/fromKeyboard'
 require 'input/static'
