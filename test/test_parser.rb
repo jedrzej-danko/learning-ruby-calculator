@@ -1,4 +1,5 @@
-require 'minitest/autorun'
+require 'test_helper'
+
 require 'input/static'
 require 'parser'
 
