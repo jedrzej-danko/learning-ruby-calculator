@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 $LOAD_PATH << File.join(__FILE__, '../lib')
 
 require 'input/fromKeyboard'
